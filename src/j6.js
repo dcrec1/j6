@@ -3,5 +3,5 @@ $(function($) {
      $(this).siblings("label").hide(); 
   }).blur(function() {
     $(this).siblings("label").toggle($(this).val() == "");
-  });
+  }).blur();
 });

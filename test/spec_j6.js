@@ -1,3 +1,9 @@
+describe('on load', {
+  'should hide li.swapable label if the input has a value': function() {
+    value_of($("#_swapable2 label").is(":visible")).should_be_false();
+  }
+});
+
 describe('on li.swapable input focus', {
   'should hide the label': function(){
     $("#_swapable1 label").show();
