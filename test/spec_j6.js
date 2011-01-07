@@ -55,5 +55,9 @@ describe('on a.trigger click with a a target with class dialog', {
 
   'should set the height from data-height dialog attribute': function() {
     value_of($("#sign_in").dialog("option", "height")).should_be($("#sign_in").attr("data-height"));
+  },
+
+  'should not set the dialog as draggable': function() {
+    value_of($("#sign_in").dialog("option", "draggable")).should_be_false();
   }
 });
