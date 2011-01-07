@@ -47,5 +47,13 @@ describe('on a.trigger click with a a target with class dialog', {
     var event = $.Event("click");
     $("a.trigger").data("events").click[5].apply($("a.trigger").eq(0), [event]);
     value_of(event.isDefaultPrevented()).should_be_true();
+  },
+
+  'should set the width from data-width dialog attribute': function() {
+    value_of($("#sign_in").dialog("option", "width")).should_be($("#sign_in").attr("data-width"));
+  },
+
+  'should set the height from data-height dialog attribute': function() {
+    value_of($("#sign_in").dialog("option", "height")).should_be($("#sign_in").attr("data-height"));
   }
 });

@@ -6,7 +6,8 @@ $(function($) {
   }).blur();
 
   $("a.trigger").click(function(event) {
-    $($(this).attr("href")).dialog({modal: true});
+    var target = $($(this).attr("href"));
+    target.dialog({modal: true, width: target.attr("data-width"), height: target.attr("data-height")});
     event.preventDefault();
   });
 });
