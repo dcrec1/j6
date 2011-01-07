@@ -37,5 +37,9 @@ describe('on a.trigger click with a a target with class dialog', {
 
   'should not set other elements with class dialog as dialogs': function() {
     value_of($("#sign_up").parent().hasClass("ui-dialog")).should_be_false(); 
+  },
+
+  'should set the dialog as a modal': function() {
+    value_of($("#sign_in").dialog("option", "modal")).should_be_true();
   }
 });

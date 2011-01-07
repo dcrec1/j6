@@ -6,6 +6,6 @@ $(function($) {
   }).blur();
 
   $("a.trigger").click(function() {
-    $($(this).attr("href")).dialog();
+    $($(this).attr("href")).dialog({modal: true});
   });
 });
