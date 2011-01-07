@@ -41,5 +41,11 @@ describe('on a.trigger click with a a target with class dialog', {
 
   'should set the dialog as a modal': function() {
     value_of($("#sign_in").dialog("option", "modal")).should_be_true();
+  },
+
+  'should prevent the anchor action': function() {
+    var event = $.Event("click");
+    $("a.trigger").data("events").click[5].apply($("a.trigger").eq(0), [event]);
+    value_of(event.isDefaultPrevented()).should_be_true();
   }
 });
