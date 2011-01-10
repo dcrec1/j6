@@ -8,8 +8,8 @@ $(function($) {
   $("a.trigger").click(function(event) {
     var target = $($(this).attr("href"));
     target.dialog({ modal: true, 
-                    width: target.attr("data-width"), 
-                    height: target.attr("data-height"),
+                    width: target.css("width"), 
+                    height: target.css("height"),
                     draggable: false });
     event.preventDefault();
   });

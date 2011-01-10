@@ -49,12 +49,12 @@ describe('on a.trigger click with a a target with class dialog', {
     value_of(event.isDefaultPrevented()).should_be_true();
   },
 
-  'should set the width from data-width dialog attribute': function() {
-    value_of($("#sign_in").dialog("option", "width")).should_be($("#sign_in").attr("data-width"));
+  'should set the width from css width dialog attribute': function() {
+    value_of($("#sign_in").dialog("option", "width")).should_be($("#sign_in").css("width"));
   },
 
-  'should set the height from data-height dialog attribute': function() {
-    value_of($("#sign_in").dialog("option", "height")).should_be($("#sign_in").attr("data-height"));
+  'should set the height from css height dialog attribute': function() {
+    value_of($("#sign_in").dialog("option", "height")).should_be($("#sign_in").css("height"));
   },
 
   'should not set the dialog as draggable': function() {
