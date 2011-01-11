@@ -29,7 +29,7 @@ describe('on li.swapable input blur', {
 });
 
 describe('on a.trigger click with a a target with class dialog', {
-  before_all: function() { $("a.trigger").click(); },
+  before_all: function() { $("#a1").click(); },
 
   'should set the target as dialog': function() {
     value_of($("#sign_in").parent().hasClass("ui-dialog")).should_be_true();
@@ -60,4 +60,20 @@ describe('on a.trigger click with a a target with class dialog', {
     $("a.trigger").data("events").click[5].apply($("a.trigger").eq(0), [event]);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
+});
+
+describe('on a.trigger click with a a target with class menu', {
+  before_all: function() {  },
+
+  'should slide toggle the target': function() {
+    $("#menu1").hide();
+    $("#a2").click();
+    value_of($("#menu1").is(":visible")).should_be_true();
+  },
+
+  'should not slide toggle other targets': function() {
+    $("#menu2").hide();
+    $("#a2").click();
+    value_of($("#menu2").is(":hidden")).should_be_true();
+  }
 });
