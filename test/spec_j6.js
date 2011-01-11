@@ -43,21 +43,21 @@ describe('on a.trigger click with a a target with class dialog', {
     value_of($("#sign_in").dialog("option", "modal")).should_be_true();
   },
 
+  'should set the width from css width dialog attribute': function() {
+    value_of($("#sign_in").dialog("option", "width")).should_be(400);
+  },
+
+  'should set the height from css height dialog attribute': function() {
+    value_of($("#sign_in").dialog("option", "height")).should_be(600);
+  },
+
+  'should not set the dialog as draggable': function() {
+    value_of($("#sign_in").dialog("option", "draggable")).should_be_false();
+  },
+
   'should prevent the anchor action': function() {
     var event = $.Event("click");
     $("a.trigger").data("events").click[5].apply($("a.trigger").eq(0), [event]);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
-
-  'should set the width from css width dialog attribute': function() {
-    value_of($("#sign_in").dialog("option", "width")).should_be($("#sign_in").css("width"));
-  },
-
-  'should set the height from css height dialog attribute': function() {
-    value_of($("#sign_in").dialog("option", "height")).should_be($("#sign_in").css("height"));
-  },
-
-  'should not set the dialog as draggable': function() {
-    value_of($("#sign_in").dialog("option", "draggable")).should_be_false();
-  }
 });
