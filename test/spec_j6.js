@@ -63,8 +63,6 @@ describe('on a.trigger click with a a target with class dialog', {
 });
 
 describe('on a.trigger click with a a target with class menu', {
-  before_all: function() {  },
-
   'should slide toggle the target': function() {
     $("#menu1").hide();
     $("#a2").click();
@@ -75,5 +73,19 @@ describe('on a.trigger click with a a target with class menu', {
     $("#menu2").hide();
     $("#a2").click();
     value_of($("#menu2").is(":hidden")).should_be_true();
+  }
+});
+
+describe('on a.filter click', {
+  'should hide all target sibblings': function() {
+    $("#users span").show();
+    $("a#filter").click();
+    value_of($(".inactive").is(":hidden")).should_be_true();
+  },
+
+  'should show targets': function() {
+    $("#users span").hide();
+    $("a#filter").click();
+    value_of($(".active").is(":visible")).should_be_true();
   }
 });
