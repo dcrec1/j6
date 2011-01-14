@@ -59,7 +59,7 @@ describe('on a.trigger click with a a target with class dialog', {
     var event = $.Event("click");
     $("a.trigger").data("events").click[5].apply($("a.trigger").eq(0), [event]);
     value_of(event.isDefaultPrevented()).should_be_true();
-  },
+  }
 });
 
 describe('on a.trigger click with a a target with class menu', {
@@ -87,5 +87,11 @@ describe('on a.filter click', {
     $("#users span").hide();
     $("a#filter").click();
     value_of($(".active").is(":visible")).should_be_true();
-  }
+  },
+
+  'should prevent the anchor action': function() {
+    var event = $.Event("click");
+    $("a#filter").data("events").click[6].apply($("a#filter").eq(0), [event]);
+    value_of(event.isDefaultPrevented()).should_be_true();
+  },
 });

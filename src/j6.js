@@ -24,5 +24,6 @@ $(function($) {
   $("a.filter").click(function(event) {
     $(this)._target().siblings().hide();
     $(this)._target().show();
+    event.preventDefault();
   })
 });
