@@ -1,4 +1,4 @@
-$(function($) {
+$(function() {
   $.fn._target = function() {
     return $($(this).attr("href"));
   }
@@ -22,8 +22,11 @@ $(function($) {
   });
 
   $("a.filter").click(function(event) {
-    $(this)._target().siblings().hide();
+    var href = $(this).attr("href");
+    var siblings = href.indexOf(" > ") > -1 ? $(href.split(" > ")[0]).children() : $(this)._target().siblings();
+    siblings.hide();
     $(this)._target().show();
+    $(this).parent("li").addClass("selected").siblings().removeClass("selected");
     event.preventDefault();
   })
 });

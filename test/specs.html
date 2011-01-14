@@ -52,7 +52,15 @@
       <li>Item 2</li>
     </ul>
 
-    <a id="filter" class="filter" href="#users .active">Active</a>
+    <div>
+      <a id="filter" class="filter" href="#users .active">Active</a>
+      <a id="filter2" class="filter" href="#users2 > .new">New</a>
+    </div>
+
+    <ol>
+      <li><a id="filter3" class="filter" href=".none">None</a></li>
+      <li class="selected"><a id="filter4" class="filter" href=".all">All</a></li>
+    </ol>
 
     <div id="users">
       <span class="active"></span>
@@ -61,6 +69,11 @@
       <span class="inactive"></span>
       <span class="active"></span>
       <span class="inactive"></span>
+    </div>
+
+    <div id="users2">
+      <span class="active">Active</span>
+      <span class="inactive">Inactive</span>
     </div>
 
   </body>

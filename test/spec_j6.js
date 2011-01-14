@@ -80,13 +80,13 @@ describe('on a.filter click', {
   'should hide all target sibblings': function() {
     $("#users span").show();
     $("a#filter").click();
-    value_of($(".inactive").is(":hidden")).should_be_true();
+    value_of($("#users .inactive").is(":hidden")).should_be_true();
   },
 
   'should show targets': function() {
     $("#users span").hide();
     $("a#filter").click();
-    value_of($(".active").is(":visible")).should_be_true();
+    value_of($("#users .active").is(":visible")).should_be_true();
   },
 
   'should prevent the anchor action': function() {
@@ -94,4 +94,28 @@ describe('on a.filter click', {
     $("a#filter").data("events").click[6].apply($("a#filter").eq(0), [event]);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
+
+  'should hide the parent childs if the target doesnt exist but whas especified like this "parent > child"': function() {
+    $("#users2 span").show();
+    $("a#filter2").click();
+    value_of($("#users2 span").is(":hidden")).should_be_true();
+  },
+
+  'should remove the selected class from the parent li siblings': function() {
+    $("#filter4").parent().addClass("selected"); 
+    $("#filter3").click();
+    value_of($("#filter4").parent().hasClass("selected")).should_be_false();
+  },
+
+  'should add the selected class to the parent li': function() {
+    $("#filter3").parent().removeClass("selected"); 
+    $("#filter3").click();
+    value_of($("#filter3").parent().hasClass("selected")).should_be_true();
+  },
+
+  'should not add the selected class if the parent is not an li': function() {
+    $("#filter").parent().removeClass("selected");
+    $("#filter").click();
+    value_of($("#filter").parent().hasClass("selected")).should_be_false();
+  }
 });
