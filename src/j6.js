@@ -30,5 +30,5 @@ $(function() {
     event.preventDefault();
   });
 
-  $(".slider").slider({step: $(".slider").data("step")});
+  $(".slider").slider({step: $(".slider").data("step"), max: $(".slider").data("max")});
 });

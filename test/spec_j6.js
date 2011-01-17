@@ -9,6 +9,10 @@ describe('on load', {
 
   'should set .slider[data-step] as the slider step': function() {
     value_of($(".slider").slider("option", "step")).should_be($(".slider").data("step"));
+  },
+
+  'should set .slider[data-max] as the slider max': function() {
+    value_of($(".slider").slider("option", "max")).should_be($(".slider").data("max"));
   }
 });
 
