@@ -5,6 +5,10 @@ describe('on load', {
 
   'should set .slider as an slider': function() {
     value_of($(".slider").hasClass("ui-slider")).should_be_true();
+  },
+
+  'should set .slider[data-step] as the slider step': function() {
+    value_of($(".slider").slider("option", "step")).should_be($(".slider").data("step"));
   }
 });
 
@@ -61,7 +65,7 @@ describe('on a.trigger click with a a target with class dialog', {
 
   'should prevent the anchor action': function() {
     var event = $.Event("click");
-    $("a.trigger").data("events").click[5].apply($("a.trigger").eq(0), [event]);
+    $("a.trigger").data("events").click[0].handler.apply($("a.trigger").eq(0), [event]);
     value_of(event.isDefaultPrevented()).should_be_true();
   }
 });
@@ -95,7 +99,7 @@ describe('on a.filter click', {
 
   'should prevent the anchor action': function() {
     var event = $.Event("click");
-    $("a#filter").data("events").click[6].apply($("a#filter").eq(0), [event]);
+    $("a#filter").data("events").click[0].handler.apply($("a#filter").eq(0), [event]);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
 

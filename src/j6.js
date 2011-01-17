@@ -30,5 +30,5 @@ $(function() {
     event.preventDefault();
   });
 
-  $(".slider").slider();
+  $(".slider").slider({step: $(".slider").data("step")});
 });
