@@ -28,5 +28,7 @@ $(function() {
     $(this)._target().show();
     $(this).parent("li").addClass("selected").siblings().removeClass("selected");
     event.preventDefault();
-  })
+  });
+
+  $(".slider").slider();
 });

@@ -1,6 +1,10 @@
 describe('on load', {
   'should hide li.swapable label if the input has a value': function() {
     value_of($("#_swapable2 label").is(":visible")).should_be_false();
+  },
+
+  'should set .slider as an slider': function() {
+    value_of($(".slider").hasClass("ui-slider")).should_be_true();
   }
 });
 
