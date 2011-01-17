@@ -13,6 +13,10 @@ describe('on load', {
 
   'should set .slider[data-max] as the slider max': function() {
     value_of($(".slider").slider("option", "max")).should_be($(".slider").data("max"));
+  },
+
+  'should set .slider[data-min] as the slider min': function() {
+    value_of($(".slider").slider("option", "min")).should_be($(".slider").data("min"));
   }
 });
 
