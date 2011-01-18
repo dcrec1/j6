@@ -9,8 +9,8 @@ j6 = {
                       change: j6.slider.update});
     },
 
-    update: function() {
-      $($(this).data("target")).val($(this).slider("option", "value"));
+    update: function(event, ui) {
+      $($(this).data("target")).val(ui.value);
     }
   }
 }
