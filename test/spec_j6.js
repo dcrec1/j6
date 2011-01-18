@@ -135,3 +135,10 @@ describe('on a.filter click', {
     value_of($("#filter").parent().hasClass("selected")).should_be_false();
   }
 });
+
+describe("j6.slider.init", {
+  'should set the specified selector as an slider': function() {
+    j6.slider.init("#slider");
+    value_of($("#slider").hasClass("ui-slider")).should_be_true();
+  }
+})

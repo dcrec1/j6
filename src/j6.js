@@ -1,3 +1,12 @@
+j6 = {
+  slider: {
+    init: function(selector) {
+      var element = $(selector);
+      element.slider({step: element.data("step"), max: element.data("max"), min: element.data("min")});
+    }        
+  }
+}
+
 $(function() {
   $.fn._target = function() {
     return $($(this).attr("href"));
@@ -30,5 +39,5 @@ $(function() {
     event.preventDefault();
   });
 
-  $(".slider").slider({step: $(".slider").data("step"), max: $(".slider").data("max"), min: $(".slider").data("min")});
+  j6.slider.init(".slider");
 });
