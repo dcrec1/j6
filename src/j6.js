@@ -2,8 +2,12 @@ j6 = {
   slider: {
     init: function(selector) {
       var element = $(selector);
-      element.slider({step: element.data("step"), max: element.data("max"), min: element.data("min")});
-    }        
+      element.slider({step: element.data("step"), max: element.data("max"), min: element.data("min"), change: j6.slider.update});
+    },
+
+    update: function() {
+      $($(this).data("target")).val($(this).slider("option", "value"));
+    }
   }
 }
 
