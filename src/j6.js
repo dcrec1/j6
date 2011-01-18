@@ -6,7 +6,7 @@ j6 = {
                       max: element.data("max"), 
                       min: element.data("min"),
                       value: element.data("value"),
-                      change: j6.slider.update});
+                      slide: j6.slider.update});
     },
 
     update: function(event, ui) {

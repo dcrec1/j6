@@ -146,10 +146,10 @@ describe("j6.slider.init", {
     value_of($("#slider").hasClass("ui-slider")).should_be_true();
   },
 
-  'should update the data-target value when the slider changes': function() {
+  'should update the data-target value when the slider slides': function() {
     j6.slider.init("#slider");
     $("#input").val("0");
-    $("#slider").slider("option", "value", "10");
+    $("#slider").slider("option", "slide").call($("#slider")[0], null, {value: 10});
     value_of($("#input").val()).should_be("10");
   }
 })
