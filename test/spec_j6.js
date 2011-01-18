@@ -17,6 +17,10 @@ describe('on load', {
 
   'should set .slider[data-min] as the slider min': function() {
     value_of($(".slider").slider("option", "min")).should_be($(".slider").data("min"));
+  },
+
+  'should set .slider[data-value] as the slider value': function() {
+    value_of($(".slider").slider("option", "value")).should_be($(".slider").data("value"));
   }
 });
 
