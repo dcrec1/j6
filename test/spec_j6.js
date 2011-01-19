@@ -109,9 +109,15 @@ describe('on a.filter click', {
     value_of($("#users .active").is(":visible")).should_be_true();
   },
 
+  'should do the actions if the anchor was dynamically created': function() {
+    $("#users span").hide();
+    $("<a class='filter' href='#users .active'>Filter</a>").appendTo("body").click();
+    value_of($("#users .active").is(":visible")).should_be_true();
+  },
+
   'should prevent the anchor action': function() {
     var event = $.Event("click");
-    $("a#filter").data("events").click[0].handler.apply($("a#filter").eq(0), [event]);
+     jQuery.data(document, 'events').live[0].handler.call($("a#filter")[0], event);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
 

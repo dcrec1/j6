@@ -38,7 +38,7 @@ $(function() {
     event.preventDefault();
   });
 
-  $("a.filter").click(function(event) {
+  $("a.filter").live('click', function(event) {
     var href = $(this).attr("href");
     var siblings = href.indexOf(" > ") > -1 ? $(href.split(" > ")[0]).children() : $(this)._target().siblings();
     siblings.hide();
