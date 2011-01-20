@@ -1,4 +1,14 @@
 j6 = {
+  dialog: {
+    init: function(selector) {
+      var target = $(selector);
+      target.dialog({ modal: true, 
+                      width: parseInt(target.css("width")),
+                      height: parseInt(target.css("height")),
+                      draggable: false });
+    }        
+  },
+
   slider: {
     init: function(selector) {
       var element = $(selector);
@@ -28,10 +38,7 @@ $(function() {
 
   $("a.trigger").click(function(event) {
     if ((target = $(this)._target()).hasClass("dialog")) {
-      target.dialog({ modal: true, 
-                                width: parseInt(target.css("width")),
-                                height: parseInt(target.css("height")),
-                                draggable: false });
+      j6.dialog.init(target);
     } else {
       target.slideToggle();
     }

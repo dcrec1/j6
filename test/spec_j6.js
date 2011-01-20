@@ -158,4 +158,11 @@ describe("j6.slider.init", {
     $("#slider").slider("option", "slide").call($("#slider")[0], null, {value: 10});
     value_of($("#input").val()).should_be("10");
   }
-})
+});
+
+describe("j6.dialog.init", {
+  'should set the specified selector a dialog': function() {
+    j6.dialog.init("#sign_out");
+    value_of($("#sign_out").parent().hasClass("ui-dialog")).should_be_true();
+  }
+});
