@@ -175,5 +175,11 @@ describe("j6.datepicker.init", {
   'shoult set the specified selector as a datepicker': function() {
     j6.datepicker.init("#datepicker");
     value_of($("#datepicker").hasClass("hasDatepicker")).should_be_true();
+  },
+
+  'should use .calendar as a default selector': function() {
+    $("<div class='calendar' id='calendar'></div>").appendTo("body");
+    j6.datepicker.init();
+    value_of($("#calendar").hasClass("hasDatepicker")).should_be_true();
   }
 })

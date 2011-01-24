@@ -1,6 +1,7 @@
 j6 = {
   datepicker: {
     init: function(selector) {
+      if (selector == undefined) selector = ".calendar";
       $(selector).datepicker();      
     }            
   },
