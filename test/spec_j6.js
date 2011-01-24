@@ -170,3 +170,10 @@ describe("j6.dialog.init", {
     value_of($("#sign_out").parent().hasClass("ui-dialog")).should_be_true();
   }
 });
+
+describe("j6.datepicker.init", {
+  'shoult set the specified selector as a datepicker': function() {
+    j6.datepicker.init("#datepicker");
+    value_of($("#datepicker").hasClass("hasDatepicker")).should_be_true();
+  }
+})

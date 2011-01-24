@@ -1,4 +1,10 @@
 j6 = {
+  datepicker: {
+    init: function(selector) {
+      $(selector).datepicker();      
+    }            
+  },
+
   dialog: {
     init: function(selector) {
       var target = $(selector);
