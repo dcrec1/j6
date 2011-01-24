@@ -21,6 +21,10 @@ describe('on load', {
 
   'should set .slider[data-value] as the slider value': function() {
     value_of($(".slider").slider("option", "value")).should_be($(".slider").data("value"));
+  },
+
+  'should set .calendar as a calendar': function() {
+    value_of($(".calendar").hasClass("hasDatepicker")).should_be_true();
   }
 });
 

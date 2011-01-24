@@ -55,4 +55,6 @@ $(function() {
   });
 
   j6.slider.init(".slider");
+
+  $(".calendar").datepicker();
 });
