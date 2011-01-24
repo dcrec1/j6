@@ -61,6 +61,5 @@ $(function() {
   });
 
   j6.slider.init(".slider");
-
-  $(".calendar").datepicker();
+  j6.datepicker.init(".calendar");
 });
