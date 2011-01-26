@@ -181,5 +181,10 @@ describe("j6.datepicker.init", {
     $("<div class='calendar' id='calendar'></div>").appendTo("body");
     j6.datepicker.init();
     value_of($("#calendar").hasClass("hasDatepicker")).should_be_true();
+  },
+
+  'should call j6.datepicker.beforeShowDay before showing the days': function() {
+    j6.datepicker.init();
+    value_of($(".calendar").datepicker("option", "beforeShowDay")).should_be(j6.datepicker.beforeShowDay)
   }
 })

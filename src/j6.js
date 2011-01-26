@@ -1,8 +1,12 @@
 j6 = {
   datepicker: {
+    beforeShowDay: function() {
+      return [true, '', ''];       
+    },
+
     init: function(selector) {
       if (selector == undefined) selector = ".calendar";
-      $(selector).datepicker();      
+      $(selector).datepicker({beforeShowDay: j6.datepicker.beforeShowDay});      
     }            
   },
 
