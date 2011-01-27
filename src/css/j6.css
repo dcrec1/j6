@@ -1,4 +1,4 @@
-.swapable label {
+.swapable label, .swapable + label{
   position: absolute;
   margin: 10px;
 }

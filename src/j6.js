@@ -44,7 +44,7 @@ $(function() {
     return $($(this).attr("href"));
   }
 
-  $(".swapable input").focus(function() {
+  $(".swapable input, input.swapable").focus(function() {
      $(this).siblings("label").hide();
   }).blur(function() {
     $(this).siblings("label").toggle($(this).val() == "");
