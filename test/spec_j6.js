@@ -186,5 +186,10 @@ describe("j6.datepicker.init", {
   'should call j6.datepicker.beforeShowDay before showing the days': function() {
     j6.datepicker.init();
     value_of($(".calendar").datepicker("option", "beforeShowDay")).should_be(j6.datepicker.beforeShowDay)
+  },
+
+  'should call j6.datepicker.onChangeMonthYear when the month changes': function() {
+    j6.datepicker.init();
+    value_of($(".calendar").datepicker("option", "onChangeMonthYear")).should_be(j6.datepicker.onChangeMonthYear)
   }
 })

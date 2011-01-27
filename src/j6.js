@@ -6,8 +6,11 @@ j6 = {
 
     init: function(selector) {
       if (selector == undefined) selector = ".calendar";
-      $(selector).datepicker({beforeShowDay: j6.datepicker.beforeShowDay});      
-    }            
+      $(selector).datepicker({ beforeShowDay: j6.datepicker.beforeShowDay, 
+                               onChangeMonthYear: j6.datepicker.onChangeMonthYear });      
+    },
+
+    onChangeMonthYear: function() {}
   },
 
   dialog: {
