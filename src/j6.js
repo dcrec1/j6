@@ -43,9 +43,9 @@ $(function() {
   $.fn._target = function() {
     return $($(this).attr("href"));
   }
-  
-  $("li.swapable input").focus(function() {
-     $(this).siblings("label").hide(); 
+
+  $(".swapable input").focus(function() {
+     $(this).siblings("label").hide();
   }).blur(function() {
     $(this).siblings("label").toggle($(this).val() == "");
   }).blur();

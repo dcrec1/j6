@@ -36,6 +36,14 @@ describe('on li.swapable input focus', {
   }
 });
 
+describe('on div.swapable input focus', {
+  'should hide the label': function(){
+    $("#_swapable3 label").show();
+    $("#_swapable3 input").focus();
+    value_of($("#_swapable3 label").is(":visible")).should_be_false();
+  }
+});
+
 describe('on li.swapable input blur', {
   'should hide the label if the value is not empty': function(){
     $("#_swapable1 label").show();
