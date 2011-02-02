@@ -50,7 +50,7 @@ $(function() {
     $(this).siblings("label").toggle($(this).val() == "");
   }).blur();
 
-  $("a.trigger").click(function(event) {
+  $("a.trigger").live('click', function(event) {
     if ((target = $(this)._target()).hasClass("dialog")) {
       j6.dialog.init(target);
     } else {

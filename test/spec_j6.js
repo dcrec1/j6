@@ -97,8 +97,17 @@ describe('on a.trigger click with a a target with class dialog', {
 
   'should prevent the anchor action': function() {
     var event = $.Event("click");
-    $("a.trigger").data("events").click[0].handler.apply($("a.trigger").eq(0), [event]);
+
+    jQuery.data(document, 'events').live[0].handler.call($("a.trigger")[0], event);
     value_of(event.isDefaultPrevented()).should_be_true();
+  },
+
+  'should set the dialog for dynamic html': function() {
+    $("#sign_in").dialog("close")
+
+    $("<a class='trigger' href='#sign_in'>Open Dialog</a>").appendTo("body").click();
+    $("#_opendialog").click();
+    value_of($("#sign_in").dialog("isOpen")).should_be_true();
   }
 });
 
@@ -137,7 +146,7 @@ describe('on a.filter click', {
 
   'should prevent the anchor action': function() {
     var event = $.Event("click");
-     jQuery.data(document, 'events').live[0].handler.call($("a#filter")[0], event);
+     jQuery.data(document, 'events').live[1].handler.call($("a#filter")[0], event);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
 
