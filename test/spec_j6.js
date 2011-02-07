@@ -49,7 +49,13 @@ describe('on input.swapable focus', {
     $("#_swapable4").siblings("label").show();
     $("#_swapable4").focus();
     value_of($("#_swapable4").siblings("label").is(":visible")).should_be_false();
+  },
+  'should hide the label for dynamic input': function() {
+    $("<input id='_swapix' />").addClass("swapable").val("Ola").appendTo("#container_swapix");
+    $("#_swapix").focus();
+    value_of($("#_swapix").siblings("label").is(":visible")).should_be_false();
   }
+
 });
 
 describe('on li.swapable input blur', {
@@ -98,7 +104,7 @@ describe('on a.trigger click with a a target with class dialog', {
   'should prevent the anchor action': function() {
     var event = $.Event("click");
 
-    jQuery.data(document, 'events').live[0].handler.call($("a.trigger")[0], event);
+    jQuery.data(document, 'events').live[4].handler.call($("a.trigger")[0], event);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
 
@@ -146,7 +152,7 @@ describe('on a.filter click', {
 
   'should prevent the anchor action': function() {
     var event = $.Event("click");
-     jQuery.data(document, 'events').live[1].handler.call($("a#filter")[0], event);
+     jQuery.data(document, 'events').live[5].handler.call($("a#filter")[0], event);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
 

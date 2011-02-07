@@ -44,9 +44,9 @@ $(function() {
     return $($(this).attr("href"));
   }
 
-  $(".swapable input, input.swapable").focus(function() {
-     $(this).siblings("label").hide();
-  }).blur(function() {
+  $(".swapable input, input.swapable").live("focus", function() {
+    $(this).siblings("label").hide();
+  }).live("blur", function() {
     $(this).siblings("label").toggle($(this).val() == "");
   }).blur();
 
