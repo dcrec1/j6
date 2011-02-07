@@ -36,18 +36,23 @@ j6 = {
     update: function(event, ui) {
       $($(this).data("target")).val(ui.value);
     }
+  },
+
+  swapable: {
+    init: function() {
+      var element = $(".swapable input, input.swapable");
+      element.live("focus", function() {
+        $(this).siblings("label").hide();
+      }).live("blur", function() {
+        $(this).siblings("label").toggle($(this).val() === "");
+      }).blur();
+    }
   }
 };
 
 $(function() {
   $.fn._target = function() {
     return $($(this).attr("href"));
-
-  $(".swapable input, input.swapable").live("focus", function() {
-    $(this).siblings("label").hide();
-  }).live("blur", function() {
-    $(this).siblings("label").toggle($(this).val() == "");
-  }).blur();
   };
 
   $("a.trigger").live('click', function(event) {
@@ -70,4 +75,5 @@ $(function() {
 
   j6.slider.init(".slider");
   j6.datepicker.init();
+  j6.swapable.init();
 });
