@@ -1,13 +1,13 @@
 j6 = {
   datepicker: {
     beforeShowDay: function() {
-      return [true, '', ''];       
+      return [true, '', ''];
     },
 
     init: function(selector) {
       if (selector == undefined) selector = ".calendar";
-      $(selector).datepicker({ beforeShowDay: j6.datepicker.beforeShowDay, 
-                               onChangeMonthYear: j6.datepicker.onChangeMonthYear });      
+      $(selector).datepicker({ beforeShowDay: j6.datepicker.beforeShowDay,
+                               onChangeMonthYear: j6.datepicker.onChangeMonthYear });
     },
 
     onChangeMonthYear: function() {}
@@ -16,18 +16,18 @@ j6 = {
   dialog: {
     init: function(selector) {
       var target = $(selector);
-      target.dialog({ modal: true, 
+      target.dialog({ modal: true,
                       width: parseInt(target.css("width")),
                       height: parseInt(target.css("height")),
                       draggable: false });
-    }        
+    }
   },
 
   slider: {
     init: function(selector) {
       var element = $(selector);
-      element.slider({step: element.data("step"), 
-                      max: element.data("max"), 
+      element.slider({step: element.data("step"),
+                      max: element.data("max"),
                       min: element.data("min"),
                       value: element.data("value"),
                       slide: j6.slider.update});
@@ -37,18 +37,18 @@ j6 = {
       $($(this).data("target")).val(ui.value);
     }
   }
-}
+};
 
 $(function() {
   $.fn._target = function() {
     return $($(this).attr("href"));
-  }
 
   $(".swapable input, input.swapable").live("focus", function() {
     $(this).siblings("label").hide();
   }).live("blur", function() {
     $(this).siblings("label").toggle($(this).val() == "");
   }).blur();
+  };
 
   $("a.trigger").live('click', function(event) {
     if ((target = $(this)._target()).hasClass("dialog")) {
