@@ -26,6 +26,7 @@ j6 = {
   slider: {
     init: function(selector) {
       var element = $(selector);
+      if(!element.slider) return false;
       element.slider({step: element.data("step"),
                       max: element.data("max"),
                       min: element.data("min"),

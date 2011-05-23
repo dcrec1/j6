@@ -25,6 +25,13 @@ describe('on load', {
 
   'should set .calendar as a calendar': function() {
     value_of($(".calendar").hasClass("hasDatepicker")).should_be_true();
+  },
+  'should not depends of slider': function () {
+    slider_tmp = $.fn.slider;
+    $.fn.slider = undefined;
+    j6.slider.init(".slider");
+    value_of($(".slider")).should_be($(".slider"));
+    $.fn.slider = slider_tmp;
   }
 });
 
