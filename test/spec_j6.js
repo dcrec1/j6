@@ -89,7 +89,7 @@ describe('on a.trigger click with a a target with class dialog', {
   },
 
   'should not set other elements with class dialog as dialogs': function() {
-    value_of($("#sign_up").parent().hasClass("ui-dialog")).should_be_false(); 
+    value_of($("#sign_up").parent().hasClass("ui-dialog")).should_be_false();
   },
 
   'should set the dialog as a modal': function() {
@@ -111,7 +111,7 @@ describe('on a.trigger click with a a target with class dialog', {
   'should prevent the anchor action': function() {
     var event = $.Event("click");
 
-    jQuery.data(document, 'events').live[4].handler.call($("a.trigger")[0], event);
+    jQuery.data(document, 'events').live[0].handler.call($("a.trigger")[0], event);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
 
@@ -159,7 +159,7 @@ describe('on a.filter click', {
 
   'should prevent the anchor action': function() {
     var event = $.Event("click");
-     jQuery.data(document, 'events').live[5].handler.call($("a#filter")[0], event);
+     jQuery.data(document, 'events').live[1].handler.call($("a#filter")[0], event);
     value_of(event.isDefaultPrevented()).should_be_true();
   },
 
@@ -170,13 +170,13 @@ describe('on a.filter click', {
   },
 
   'should remove the selected class from the parent li siblings': function() {
-    $("#filter4").parent().addClass("selected"); 
+    $("#filter4").parent().addClass("selected");
     $("#filter3").click();
     value_of($("#filter4").parent().hasClass("selected")).should_be_false();
   },
 
   'should add the selected class to the parent li': function() {
-    $("#filter3").parent().removeClass("selected"); 
+    $("#filter3").parent().removeClass("selected");
     $("#filter3").click();
     value_of($("#filter3").parent().hasClass("selected")).should_be_true();
   },
