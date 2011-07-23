@@ -74,6 +74,10 @@ $(function() {
     event.preventDefault();
   });
 
+  $("a.closer").live('click', function() {
+    $(this)._target().dialog("close");
+  });
+
   j6.slider.init(".slider");
   j6.datepicker.init();
   j6.swapable.init();

@@ -124,7 +124,7 @@ describe('on a.trigger click with a a target with class dialog', {
   }
 });
 
-describe('on a.trigger click with a a target with class menu', {
+describe('on a.trigger click with a target with class menu', {
   'should slide toggle the target': function() {
     $("#menu1").hide();
     $("#a2").click();
@@ -137,6 +137,14 @@ describe('on a.trigger click with a a target with class menu', {
     value_of($("#menu2").is(":hidden")).should_be_true();
   }
 });
+
+describe("on a.closer click with a target with a dialog menu", {
+  'should close the dialog': function() {
+    $("#sign_in").dialog();
+    $("#closer").click();
+    value_of($("#sign_in").dialog("isOpen")).should_be_false();
+  }
+})
 
 describe('on a.filter click', {
   'should hide all target sibblings': function() {
