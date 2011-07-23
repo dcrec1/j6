@@ -74,8 +74,9 @@ $(function() {
     event.preventDefault();
   });
 
-  $("a.closer").live('click', function() {
+  $("a.closer").live('click', function(event) {
     $(this)._target().dialog("close");
+    event.preventDefault();
   });
 
   j6.slider.init(".slider");

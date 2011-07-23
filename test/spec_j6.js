@@ -143,7 +143,14 @@ describe("on a.closer click with a target with a dialog menu", {
     $("#sign_in").dialog();
     $("#closer").click();
     value_of($("#sign_in").dialog("isOpen")).should_be_false();
-  }
+  },
+
+  'should prevent the anchor action': function() {
+    var event = $.Event("click");
+
+    jQuery.data(document, 'events').live[2].handler.call($("#closer")[0], event);
+    value_of(event.isDefaultPrevented()).should_be_true();
+  },
 })
 
 describe('on a.filter click', {
