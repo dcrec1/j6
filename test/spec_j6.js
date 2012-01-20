@@ -3,6 +3,10 @@ describe('on load', {
     value_of($("#_swapable2 label").is(":visible")).should_be_false();
   },
 
+  'should hide li.swapable label if the texarea has a value': function() {
+    value_of($("#_swapable6 label").is(":visible")).should_be_false();
+  },
+
   'should set .slider as an slider': function() {
     value_of($(".slider").hasClass("ui-slider")).should_be_true();
   },
@@ -43,6 +47,14 @@ describe('on li.swapable input focus', {
   }
 });
 
+describe('on li.swapable textarea focus', {
+  'should hide the label': function(){
+    $("#_swapable5 label").show();
+    $("#_swapable5 textarea").focus();
+    value_of($("#_swapable5 label").is(":visible")).should_be_false();
+  }
+});
+
 describe('on div.swapable input focus', {
   'should hide the label': function(){
     $("#_swapable3 label").show();
@@ -78,6 +90,22 @@ describe('on li.swapable input blur', {
     $("#_swapable1 input").val("");
     $("#_swapable1 input").blur();
     value_of($("#_swapable1 label").is(":visible")).should_be_true();
+  }
+});
+
+describe('on li.swapable textarea blur', {
+  'should hide the label if the value is not empty': function(){
+    $("#_swapable5 label").show();
+    $("#_swapable5 textarea").html("message");
+    $("#_swapable5 textarea").blur();
+    value_of($("#_swapable5 label").is(":visible")).should_be_false();
+  },
+
+  'should show the label if the value is empty': function(){
+    $("#_swapable5 label").hide();
+    $("#_swapable5 textarea").html("");
+    $("#_swapable5 textarea").blur();
+    value_of($("#_swapable5 label").is(":visible")).should_be_true();
   }
 });
 
