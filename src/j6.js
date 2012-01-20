@@ -41,7 +41,7 @@ j6 = {
 
   swapable: {
     init: function() {
-      var element = $(".swapable input, input.swapable, .swapable textarea");
+      var element = $(".swapable input, input.swapable, .swapable textarea, textarea.swapable");
       element.live("focus", function() {
         $(this).siblings("label").hide();
       }).live("blur", function() {

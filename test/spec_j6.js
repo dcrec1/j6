@@ -74,7 +74,14 @@ describe('on input.swapable focus', {
     $("#_swapix").focus();
     value_of($("#_swapix").siblings("label").is(":visible")).should_be_false();
   }
+});
 
+describe('on textarea.swapable focus', {
+  'should hide the label': function(){
+    $("#_swapable7").siblings("label").show();
+    $("#_swapable7").focus();
+    value_of($("#_swapable7").siblings("label").is(":visible")).should_be_false();
+  }
 });
 
 describe('on li.swapable input blur', {
